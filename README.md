@@ -1,68 +1,119 @@
-🛡️ Spring Boot Security Basic Setup
-This project is a basic implementation of authentication using Spring Boot. It includes:
+# 🛡️ Spring Boot Security – Basic Authentication Setup
 
-User registration
+A simple and clean Spring Boot project demonstrating **JWT-based authentication** with **refresh tokens stored in HTTP-only cookies**.
 
-Login with JWT
+---
 
-Token refreshing using HTTP-only cookies
+## 🔗 Repository
 
-🔗 GitHub Repository: SpringBootSecurityBasicSetup
+👉 [GitHub – SpringBootSecurityBasicSetup](https://github.com/yadavprateek-here/SpringBootSecurityBasicSetup)
 
-✅ Features Implemented
-User registration (/auth/register)
+---
 
-User login with JWT (/auth/login)
+## ✅ Features Implemented
 
-Refresh token endpoint (/auth/refresh)
+- 🔐 User **Registration**
+- 🔑 User **Login with JWT**
+- 🔄 **Token Refreshing** via cookies
+- 🍪 Refresh token stored in **HTTP-only Cookie** for better security
 
-Refresh token stored in an HTTP-only cookie
+---
 
-📌 Endpoints
-🔹 Register a User
-POST /auth/register
+## 📌 API Endpoints
 
-Request Body:
+### 🔹 `POST /auth/register` – Register a New User
 
-json
-Copy
-Edit
+Registers a new user with username, email, and password.
+
+**📥 Request Body:**
+```json
 {
-"username": "example_user",
-"email": "user@example.com",
-"password": "securePassword"
+  "username": "example_user",
+  "email": "user@example.com",
+  "password": "securePassword"
 }
-Response:
+```
 
-201 Created with registered user data
+**📤 Response:**
+- `201 Created`
+- Returns the created user details.
 
-🔹 Login
-POST /auth/login
+---
 
-Request Body:
+### 🔹 `POST /auth/login` – User Login
 
-json
-Copy
-Edit
+Authenticates user and returns **JWT tokens**.
+
+**📥 Request Body:**
+```json
 {
-"username": "example_user",
-"password": "securePassword"
+  "username": "example_user",
+  "password": "securePassword"
 }
-Response:
+```
 
-200 OK with access and refresh tokens
+**📤 Response:**
+- `200 OK`
+- Returns `accessToken` and `refreshToken`.
+- `refreshToken` is stored securely in an **HTTP-only cookie**.
 
-refreshToken is stored as an HTTP-only cookie
+---
 
-🔹 Refresh Token
-POST /auth/refresh
+### 🔹 `POST /auth/refresh` – Refresh Token
 
-Behavior:
+Generates a new set of tokens using the `refreshToken` stored in the cookie.
 
-Reads the refreshToken from HTTP-only cookie
+**🔁 Behavior:**
+- Extracts `refreshToken` from HTTP-only cookie.
+- Validates and issues new tokens.
 
-Returns new access and refresh tokens
+**📤 Response:**
+- `200 OK`
+- Returns updated tokens.
 
-Response:
+---
 
-200 OK with updated tokens
+## 🚀 Getting Started
+
+### 1️⃣ Clone the Repository
+```bash
+git clone https://github.com/yadavprateek-here/SpringBootSecurityBasicSetup.git
+cd SpringBootSecurityBasicSetup
+```
+
+### 2️⃣ Run the Application
+```bash
+./mvnw spring-boot:run
+```
+
+### 3️⃣ Access the API
+```
+http://localhost:8080
+```
+
+---
+
+## 📄 Technologies Used
+
+- 🧩 Spring Boot
+- 🔐 Spring Security
+- 🪙 JWT (JSON Web Tokens)
+- 🍪 HTTP Cookies
+- 🌐 RESTful API
+
+---
+
+## 🙌 Contribution
+
+Feel free to fork this repo and contribute with improvements or new features!  
+Open to suggestions via issues or pull requests.
+
+---
+
+## 📬 Contact
+
+📧 [prateekpros54@gmail.com](mailto:prateekpros54@gmail.com)
+
+---
+
+> Built with ❤️ by [Prateek Kumar Yadav](https://github.com/yadavprateek-here)
