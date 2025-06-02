@@ -1,6 +1,11 @@
-
 🛡️ Spring Boot Security Basic Setup
-This project is a basic implementation of authentication using Spring Boot. It includes user registration, login with JWT, and token refreshing using cookies.
+This project is a basic implementation of authentication using Spring Boot. It includes:
+
+User registration
+
+Login with JWT
+
+Token refreshing using HTTP-only cookies
 
 🔗 GitHub Repository: SpringBootSecurityBasicSetup
 
@@ -29,7 +34,7 @@ Edit
 }
 Response:
 
-201 Created with user data.
+201 Created with registered user data
 
 🔹 Login
 POST /auth/login
@@ -45,40 +50,19 @@ Edit
 }
 Response:
 
-200 OK with access and refresh tokens.
+200 OK with access and refresh tokens
 
-Refresh token is stored in an HTTP-only cookie.
+refreshToken is stored as an HTTP-only cookie
 
 🔹 Refresh Token
 POST /auth/refresh
 
 Behavior:
 
-Reads the refreshToken from HTTP-only cookie.
+Reads the refreshToken from HTTP-only cookie
 
-Returns a new access token and refresh token.
+Returns new access and refresh tokens
 
 Response:
 
-200 OK with updated tokens.
-
-🚀 How to Run
-Clone the repository:
-
-bash
-Copy
-Edit
-git clone https://github.com/yadavprateek-here/SpringBootSecurityBasicSetup.git
-cd SpringBootSecurityBasicSetup
-Run the project:
-
-bash
-Copy
-Edit
-./mvnw spring-boot:run
-API is available at:
-
-arduino
-Copy
-Edit
-http://localhost:8080
+200 OK with updated tokens
